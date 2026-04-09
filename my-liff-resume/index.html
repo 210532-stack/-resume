@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人申請簡歷</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; margin: 0; padding: 20px; text-align: center; }
+        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        .btn-group { display: flex; justify-content: space-around; margin: 20px 0; }
+        .btn { padding: 10px; border: none; border-radius: 5px; background: #eee; cursor: pointer; flex: 1; margin: 0 5px; font-weight: bold; }
+        .btn.active { background: #06C755; color: white; }
+        .content { display: none; text-align: left; line-height: 1.6; padding: 10px; border-top: 1px solid #eee; }
+        .content.active { display: block; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>我的個人簡歷</h2>
+        <p>申請系所：[填入你的系所]</p>
+
+        <div class="btn-group">
+            <button class="btn active" onclick="tabs(0)">動機</button>
+            <button class="btn" onclick="tabs(1)">經歷</button>
+            <button class="btn" onclick="tabs(2)">技能</button>
+        </div>
+
+        <div id="c0" class="content active"><b>🌟 申請動機：</b><br>我對該領域充滿熱情，希望能在此深造...</div>
+        <div id="c1" class="content"><b>📚 學習經歷：</b><br>1. 高中社團幹部<br>2. 英文檢定合格<br>3. 自主學習計畫</div>
+        <div id="c2" class="content"><b>🛠 專業技能：</b><br>1. 程式基礎<br>2. 團隊合作<br>3. 簡報設計</div>
+    </div>
+
+    <script>
+        function tabs(index) {
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('c' + index).classList.add('active');
+            document.querySelectorAll('.btn')[index].classList.add('active');
+        }
+    </script>
+</body>
+</html>
